@@ -1,7 +1,100 @@
+small {
+  color: #dadde1;
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  margin-bottom: 0;
+  font-size: 12px;
+}
+.first {
+  margin: 1rem 0;
+  color: #ffffff;
+  border: 0;
+  border-top: 1px solid;
+  opacity: 0.2;
+  margin-top: 0;
+}
+.second {
+  margin: 1rem 0;
+  color: #ffffff;
+  border: 0;
+  border-top: 1px solid;
+  opacity: 0.2;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+ul {
+  list-style: none;
+
+  justify-content: center;
+}
+.search-box {
+  padding-left: 30px;
+}
+#currentDate {
+  color: #ffffff;
+  font-size: 20px;
+}
+.description {
+  font-size: 20px;
+}
+.weather {
+  padding: 0 auto;
+  padding-left: 0px;
+  font-size: 10px;
+}
+.unit {
+  position: relative;
+  top: -23px;
+  font-size: 15px;
+}
+.col-1 {
+  margin: 12px;
+}
+.row {
+  color: #fff;
+  padding: 0;
+  padding-left: 0px;
+  display: flex;
+}
 .app {
   border: 5px solid #dadde1;
   padding: 15px;
   margin: 20px auto;
   border-radius: 10px;
-  max-width: 300px;
+  max-width: 350px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/056/863/original/paris2.jpg?1670411293);
+  border-radius: 20px;
+}
+
+.city-name {
+  text-align: center;
+  color: #ffffff;
+  font-size: larger;
+}
+
+.search-box {
+  opacity: 0.6;
+  border-color: black;
+  background-attachment: fixed;
+}
+.description {
+  color: #ffffff;
+  font-size: 30px;
+}
+.temperature {
+  color: #ab9999;
+  font-size: 40px;
+  margin-bottom: 0;
+  margin-bottom: 0;
+}
+.units {
+  position: relative;
+  top: -34px;
+}
+.material-symbols-outlined {
+  color: #ffffff;
 }
