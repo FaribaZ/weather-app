@@ -1,3 +1,13 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Anek Odia", sans-serif;
+  background: #222;
+  background-image: url("https://source.unsplash.com/1600x900/?landscape");
+}
 small {
   color: #dadde1;
   margin: 0 auto;
@@ -5,6 +15,12 @@ small {
   display: block;
   margin-bottom: 0;
   font-size: 12px;
+}
+form {
+  margin: auto;
+}
+.city-name {
+  font-weight: bold;
 }
 .first {
   margin: 1rem 0;
@@ -21,19 +37,23 @@ small {
   border-top: 1px solid;
   opacity: 0.2;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 3px;
 }
 ul {
   list-style: none;
 
   justify-content: center;
 }
-.search-box {
-  padding-left: 30px;
-}
+
 .currentDate {
   color: #ffffff;
   font-size: 20px;
+}
+.currentTime {
+  color: #ffffff;
+  font-size: 20px;
+  position: relative;
+  right: -110px;
 }
 .description {
   font-size: 20px;
@@ -41,11 +61,11 @@ ul {
 .weather {
   padding: 0 auto;
   padding-left: 0px;
-  font-size: 10px;
+  font-size: 15px;
 }
 .unit {
   position: relative;
-  top: -23px;
+  top: -10px;
   font-size: 15px;
 }
 .col-1 {
@@ -58,43 +78,68 @@ ul {
   display: flex;
 }
 .app {
-  border: 5px solid #dadde1;
-  padding: 15px;
-  margin: 20px auto;
-  border-radius: 10px;
-  max-width: 350px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/056/863/original/paris2.jpg?1670411293);
-  border-radius: 20px;
+  background: #000000d0;
+  color: white;
+  padding: 32px;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  align-items: center;
+  display: block;
+  opacity: 0.9;
+  padding-bottom: 0px;
 }
-
-.city-name {
-  text-align: center;
-  color: #ffffff;
-  font-size: larger;
-}
-
-.search-box {
-  opacity: 0.6;
-  border-color: black;
-  background-attachment: fixed;
-}
-.description {
+#icon {
   color: #ffffff;
   font-size: 30px;
 }
+.place {
+  text-align: center;
+  color: #ffffff;
+  font-size: larger;
+  text-transform: capitalize;
+}
+
+.search-box {
+  padding-left: 34px;
+}
+.search-input {
+  border-radius: 8px;
+  background-attachment: fixed;
+  opacity: 0.6;
+}
+.button {
+  border-radius: 8px;
+  opacity: 0.6;
+  text-align: center;
+}
+.button:hover {
+  color: white;
+  background-color: #222;
+}
+
+#icon-desc {
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
 .temperature {
-  color: #ab9999;
-  font-size: 40px;
-  margin-bottom: 0;
-  margin-bottom: 0;
+  color: #ffffff;
+  font-size: 20px;
+  position: relative;
+  right: -110px;
+  margin-bottom: 4px;
 }
 .units {
   position: relative;
   top: -34px;
 }
-.material-symbols-outlined {
-  color: #ffffff;
+.active {
+  color: white;
+  cursor: default;
+  text-decoration: none;
+}
+.active:hover {
+  text-decoration: none;
 }
