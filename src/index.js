@@ -78,6 +78,11 @@ function showTemp(event) {
   cityElement.innerHTML = document.querySelector(".search-input").value;
   let city = document.querySelector(".search-input").value;
   console.log(city);
+
+  searchCity(city);
+}
+
+function searchCity(city) {
   let apikey = "f8e6a9e3d6fde87cb38868da460b1371";
   let apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
   fetch(apiurl)
@@ -97,6 +102,8 @@ function showTemp(event) {
       getForecast(data["coord"]);
     });
 }
+
+searchCity("Yazd");
 let form = document.querySelector(".search-box");
 form.addEventListener("submit", showTemp);
 /////////////////forcast////////////////
