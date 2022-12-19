@@ -24,7 +24,8 @@ currentTime.innerHTML = time;
 
 /// update the name of the city /// weather/////////////////////////////////////////////
 
-function forcast() {
+function forecast(response) {
+  console.log(response.data);
   let forcastElement = document.querySelector(".forcast");
   let day = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri"];
 
@@ -45,15 +46,22 @@ function forcast() {
   forecastHTML = forecastHTML + `</div>`;
   forcastElement.innerHTML = forecastHTML;
 }
+forecast();
+function getForecast(coordinates) {
+  let apiKey = "f8e6a9e3d6fde87cb38868da460b1371";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  //console.log(apiUrl);
+
+  axios.get(apiUrl).then(forecast);
+}
 
 function showTemp(event) {
   event.preventDefault();
-
   let cityElement = document.querySelector(".city-name");
   cityElement.innerHTML = document.querySelector(".search-input").value;
   let city = document.querySelector(".search-input").value;
   console.log(city);
-  let apikey = "29a31f92808151fc2e343be37c695642";
+  let apikey = "f8e6a9e3d6fde87cb38868da460b1371";
   let apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
   fetch(apiurl)
     .then((response) => response.json())
@@ -67,10 +75,9 @@ function showTemp(event) {
       let iconId = data["weather"][0]["icon"];
       let icon = document.querySelector("#icon");
       icon.setAttribute("src", `http://openweathermap.org/img/w/${iconId}.png`);
-      lat = data["coord"]["lat"];
-      lon = data["coord"]["lon"];
-      console.log(lat);
-      console.log(lon);
+      // lat = data["coord"]["lat"];
+      // lon = data["coord"]["lon"];
+      getForecast(data["coord"]);
     });
 }
 let form = document.querySelector(".search-box");
@@ -101,5 +108,3 @@ let cel = document.querySelector(".cel");
 cel.addEventListener("click", changeToCelsius);
 let far = document.querySelector(".far");
 far.addEventListener("click", changeToFahrenheit);
-
-forcast();
