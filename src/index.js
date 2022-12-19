@@ -23,30 +23,47 @@ let currentTime = document.querySelector(".currentTime");
 currentTime.innerHTML = time;
 
 /// update the name of the city /// weather/////////////////////////////////////////////
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+  return days[day];
+}
 function forecast(response) {
-  console.log(response.data);
+  let forecastData = response.data.daily;
+  console.log(forecastData);
   let forcastElement = document.querySelector(".forcast");
   let day = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri"];
 
   let forecastHTML = `<div class="row">`;
 
-  day.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="col-2">
+  forecastData.forEach(function (forcastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col-2">
               <ul class="weather">
-                <li>${day}</li>
-                <li>🌤</li>
-                <li>27°C</li>
+                <li>${formatDay(forcastDay.dt)}</li> 
+                <li><img
+          src="http://openweathermap.org/img/wn/${
+            forcastDay.weather[0].icon
+          }.png"
+          alt=""/></li>
+                <li><span >${Math.round(
+                  forcastDay.temp.max
+                )}° </span> <span>${Math.round(
+          forcastDay.temp.min
+        )}°</span></li> 
               </ul>
             </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forcastElement.innerHTML = forecastHTML;
 }
-forecast();
+
 function getForecast(coordinates) {
   let apiKey = "f8e6a9e3d6fde87cb38868da460b1371";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
